@@ -13,7 +13,10 @@ public class CourseController {
     public List<Course> getAllCourse(){
         return List.of(
           new Course(1, "Java", "James Gosling"),
-                new Course(2, "Python", "Guido")
+                new Course(2, "Python", "Guido"),
+                new Course(3, "CSharp", "Microsoft"),
+                new Course(4, "C++", "Unknown"),
+                new Course(5, "C++", "Ravi")
         );
     }
 

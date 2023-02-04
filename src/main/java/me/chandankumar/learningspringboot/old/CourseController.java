@@ -1,4 +1,4 @@
-package me.chandankumar.learningspringboot;
+package me.chandankumar.learningspringboot.old;
 
 
 import org.springframework.web.bind.annotation.GetMapping;

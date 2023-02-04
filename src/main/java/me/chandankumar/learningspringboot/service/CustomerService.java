@@ -1,0 +1,24 @@
+package me.chandankumar.learningspringboot.service;
+
+import me.chandankumar.learningspringboot.entity.Customer;
+import me.chandankumar.learningspringboot.repository.CustomerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class CustomerService {
+
+    private final CustomerRepository customerRepository;
+
+    @Autowired
+    public CustomerService(@Qualifier("fake") CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+
+    public List<Customer> getCustomers(){
+        return customerRepository.getCustomers();
+    }
+}

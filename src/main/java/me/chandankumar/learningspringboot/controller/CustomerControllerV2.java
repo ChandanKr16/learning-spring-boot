@@ -2,6 +2,7 @@ package me.chandankumar.learningspringboot.controller;
 
 import jakarta.validation.Valid;
 import me.chandankumar.learningspringboot.entity.Customer;
+import me.chandankumar.learningspringboot.exception.NotFoundException;
 import me.chandankumar.learningspringboot.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +27,7 @@ public class CustomerControllerV2 {
                 .stream()
                 .filter(customer -> customer.getId().equals(customerId))
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("Customer with " + customerId + " does not exist"));
+                .orElseThrow(() -> new NotFoundException("Customer with " + customerId + " does not exist"));
     }
 
     @GetMapping("/all")

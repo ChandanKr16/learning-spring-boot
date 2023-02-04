@@ -1,5 +1,6 @@
 package me.chandankumar.learningspringboot.controller;
 
+import jakarta.validation.Valid;
 import me.chandankumar.learningspringboot.entity.Customer;
 import me.chandankumar.learningspringboot.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +22,11 @@ public class CustomerControllerV2 {
 
     @GetMapping("/all")
     public List<Customer> getCustomers(){
-        return Arrays.asList(new Customer(0L, "Version 2 Customer", "Password"));
+        return Arrays.asList(new Customer(0L, "Version 2 Customer", "Password", "email@gmail.com"));
     }
 
     @PostMapping
-    public void createCustomer(@RequestBody Customer customer){
+    public void createCustomer(@Valid @RequestBody Customer customer){
         System.out.println(customer);
     }
 

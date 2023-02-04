@@ -5,23 +5,23 @@ import me.chandankumar.learningspringboot.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
-@RequestMapping("api/v1/customer")
+@RequestMapping("api/v2/customer")
 @RestController
-@Deprecated
-public class CustomerController {
+public class CustomerControllerV2 {
 
     private final CustomerService customerService;
 
     @Autowired
-    public CustomerController(CustomerService customerService) {
+    public CustomerControllerV2(CustomerService customerService) {
         this.customerService = customerService;
     }
 
     @GetMapping("/all")
     public List<Customer> getCustomers(){
-        return customerService.getCustomers();
+        return Arrays.asList(new Customer(0L, "Version 2 Customer", "Password"));
     }
 
     @PostMapping

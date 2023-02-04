@@ -20,6 +20,15 @@ public class CustomerControllerV2 {
         this.customerService = customerService;
     }
 
+    @GetMapping("/{customerId}")
+    public Customer getCustomer(@PathVariable Long customerId){
+        return customerService.getCustomers()
+                .stream()
+                .filter(customer -> customer.getId().equals(customerId))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Customer with " + customerId + " does not exist"));
+    }
+
     @GetMapping("/all")
     public List<Customer> getCustomers(){
         return Arrays.asList(new Customer(0L, "Version 2 Customer", "Password", "email@gmail.com"));

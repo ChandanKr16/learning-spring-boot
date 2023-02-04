@@ -10,14 +10,14 @@ public class Customer {
 
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "name cannot be empty")
     private String name;
 
-    @NotBlank
+    @NotBlank(message = "password cannot be empty")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
-    @Email
+    @Email(message = "invalid email")
     private String email;
 
     public Customer(Long id, String name, String password, String email) {

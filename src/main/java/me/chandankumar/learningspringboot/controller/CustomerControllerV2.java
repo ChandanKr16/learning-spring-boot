@@ -32,7 +32,10 @@ public class CustomerControllerV2 {
 
     @GetMapping("/all")
     public List<Customer> getCustomers(){
-        return Arrays.asList(new Customer(0L, "Version 2 Customer", "Password", "email@gmail.com"));
+
+        return customerService.getCustomers();
+
+        //return Arrays.asList(new Customer(0L, "Version 2 Customer", "Password", "email@gmail.com"));
     }
 
     @PostMapping

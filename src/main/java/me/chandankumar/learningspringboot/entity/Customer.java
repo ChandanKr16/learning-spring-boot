@@ -3,11 +3,18 @@ package me.chandankumar.learningspringboot.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
+
+@Entity
+@Table
 public class Customer {
 
+    @Id
     private Long id;
 
     @NotBlank(message = "name cannot be empty")
@@ -19,6 +26,9 @@ public class Customer {
 
     @Email(message = "invalid email")
     private String email;
+
+    public Customer() {
+    }
 
     public Customer(Long id, String name, String password, String email) {
         this.id = id;

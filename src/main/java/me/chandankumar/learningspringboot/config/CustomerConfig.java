@@ -13,13 +13,17 @@ public class CustomerConfig {
     @Value("${app.isFakeCustomerRepositoryEnabled:false}")
     private Boolean isFakeCustomerRepositoryEnabled;
 
+//    @Bean
+//    CustomerRepository customerRepository(){
+//        if(isFakeCustomerRepositoryEnabled){
+//            return new CustomerFakeRepositoryImpl();
+//        }
+//        return new CustomerRepositoryImp();
+//    }
+
     @Bean
     CustomerRepository customerRepository(){
-        if(isFakeCustomerRepositoryEnabled){
-            return new CustomerFakeRepositoryImpl();
-        }
-        return new CustomerRepositoryImp();
+        return new CustomerFakeRepositoryImpl();
     }
-
 
 }

@@ -1,5 +1,8 @@
 package me.chandankumar.learningspringboot.entity;
 
+import lombok.Data;
+
+@Data
 public class Post {
     private Integer userId;
     private Integer id;
